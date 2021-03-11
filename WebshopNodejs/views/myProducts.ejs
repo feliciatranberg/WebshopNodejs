@@ -16,13 +16,11 @@
        <li><a href="/myProducts"> My Products</a></li>
     </ul>
 
-<form class="reset-form" action="/reset" method="post">
+    <% products.forEach( product => { %>
+        <div>  <%= product.name %></div>
+        <div>  <%= product.description %></div>
+        <div>  <%= product.price %></div>
+      <% })  %>
 
-    <input type="email" name="email" id="" placeholder="Ange ditt mejl">
-    
-    <button type="submit">Send link</button>
-    
-    </form>
-
-    </body>
-    </html>
+</body>
+</html>
