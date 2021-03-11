@@ -16,14 +16,26 @@
        <li><a href="/myProducts"> My Products</a></li>
     </ul>
 
-    <form class="add-product" action="/addProduct" method="post">
+    <form class="add-product" action="/addProduct" method="post" enctype="multipart/form-data">
 
       <input type="text" name="name" id="">
       <input type="text" name="description" id="">
       <input type="number" name="price" id="">
+      <input
+      type="file"
+      name="file"
+      id="input-files"
+      class="form-control-file border"
+    />
   
   <button type="submit">Add product</button>
+
   </form>
+
+  
+          
+       
+    
 
 </body>
 </html>
