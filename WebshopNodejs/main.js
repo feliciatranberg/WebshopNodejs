@@ -2,8 +2,10 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const sassMiddleware = require('node-sass-middleware');
+const cookieParser = require("cookie-parser");
 
-const homeRouter = require('./router/homeRouteTest');
+const userRouter = require("./router/userRoute");
+const homeRouter = require('./router/homeRoute');
 
 require('dotenv').config();
 
@@ -19,9 +21,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use("/static", express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.json());
+app.use(express.urlencoded({extended:false}))
+app.use(cookieParser())
+
 app.set('view engine', 'ejs');
 
 app.use(homeRouter);
+app.use(userRouter);
 
 mongoose.connect(process.env.DATABASE_URL, 
 {useNewUrlParser: true, 
