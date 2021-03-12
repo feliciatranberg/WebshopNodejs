@@ -14,19 +14,23 @@
        <li><a href="/logout"> Logout</a></li>
     </ul>
 
-    <h1>Lista av alla Products</h1>
+   <div>
 
+    <h4>UNDER CONSTRUCTION</h4>
 
-    <%  products.forEach( course => { %>
-        <div>
-            <%= product.name %>
-        </div>
-        <div>
-            <%= product.price %>
-        </div>
-        <a href="/addToCart/<%=product.id%>">Add to Cart</a>
-        <div>=================</div>
-     <%  }) %>
+    <%  products.forEach ( product => { %>
+    <div>
+        <%= product.name %>
+    </div>
+    <div>
+        <%= product.price %>
+    </div>
+    <a href="/addToCart/<%=product.id%>">Add To Cart</a>
+    <div>/////////////////**/////////////////</div>
+    
+    <% }) %> 
+
+   </div>
 
 </body>
 </html>
