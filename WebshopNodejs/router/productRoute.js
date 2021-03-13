@@ -18,8 +18,8 @@ router.get("/home", showProduct);
 router.get("/addProduct", verifyUser, verifyAdmin, addProductForm);
 router.post("/addProduct", verifyUser, verifyAdmin, addProductFormSubmit);
 router.get("/myProducts", verifyUser, showUserProducts);
-router.get("/showShoppingCart", verifyUser, addToShoppingCart)
-router.get("/addToCart/:id", verifyUser, addToShoppingCart)
+router.get("/ShoppingCart", verifyUser, addToShoppingCart)
+router.get("/ShoppingCart/:id", verifyUser, addToShoppingCart)
 
 router.get("/checkout", verifyUser, checkout)
 router.get("/shoppingSuccess", verifyUser, shoppingSuccess)

@@ -58,16 +58,16 @@ const checkout = async(req, res)=> {
 
     //const price = Number(user.shoppingCart[0].price)
     // skapa stripe session 
-    if(!user.shoppingCart || user.shoppingCart.length ===0) return res.redirect("/myProducts")
+    if(!user.shoppingCart || user.shoppingCart.length ===0) return res.redirect("/shoppingCart")
  const session=    await stripe.checkout.sessions.create({
         success_url: 'http://localhost:7777/shoppingSuccess',
         cancel_url: 'https://example.com/cancel',
         payment_method_types: ['card'],
-        line_items: user.shoppingCart.map( course => {
+        line_items: user.shoppingCart.map( product => {
 
             return {
-                name: course.name, 
-                amount:  course.price * 100, 
+                name: product.name, 
+                amount:  product.price * 100, 
                 quantity: 1, 
                 currency: "sek"
             }
@@ -86,7 +86,7 @@ const shoppingSuccess = async (req, res)=>{
     user.shoppingCart = [];
     user.save();
     console.log(user)
-    res.send(" din  varukorg är tomt . Vi skickar din beställning inom 3 dagar")
+    res.render("shoppingSuccess.ejs")
 
 }
 

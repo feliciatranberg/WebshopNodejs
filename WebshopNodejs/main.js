@@ -6,10 +6,9 @@ const cookieParser = require("cookie-parser");
 
 const userRouter = require("./router/userRoute");
 const productRouter = require("./router/productRoute")
-const initRoutes = require("./router/upload");
-
-app.use(express.urlencoded({ extended: true }));
-initRoutes(app);
+// const initRoutes = require("./router/upload");
+// app.use(express.urlencoded({ extended: true }));
+// initRoutes(app);
 
 require('dotenv').config();
 
