@@ -19,11 +19,11 @@ const userSchema = new mongoose.Schema({
     }]
 })
 
-// userSchema.methods.addToCart = function(productId) {
+userSchema.methods.addToCart = function(productId) {
 
-//    this.shoppingCart.push(productId)
-//    this.save();
-// }
+this.shoppingCart.push(productId)
+this.save();
+}
 
 // userSchema.methods.addCourseList = function(productId){
 
