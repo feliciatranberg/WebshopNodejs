@@ -41,8 +41,11 @@
 
     <div class="all-products">
         <%  products.forEach( product => { %>
-            <div>
-                <%= product.name %>
+          <div>
+           <img src= "<%= product.imageUrl %>" />
+                     </div>  
+          <div>
+           <%= product.name %>
             </div>
             <div>
                 <%= product.price %>

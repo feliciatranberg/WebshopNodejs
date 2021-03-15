@@ -9,9 +9,13 @@ const addProductForm = (req, res)=>{
 }
 
 const addProductFormSubmit = async(req, res)=>{
- const {name, description, price}=   req.body
+ const {imageUrl, name, description, price}=   req.body
  // skapa course i database 
- const product = await new Product({name: name, description:description, price: price}).save();
+ const product = await new Product({
+     imageUrl: "/img/" + imageUrl,
+     name: name,
+     description:description,
+     price: price}).save();
     
  const user = await User.findOne({_id:req.user.user._id})
 

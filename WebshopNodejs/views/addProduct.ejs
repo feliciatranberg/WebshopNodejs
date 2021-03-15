@@ -31,7 +31,38 @@
     </li>
   </ul>
 
-    <form class="add-product" action="/addProduct" method="post">
+
+          <form class="add-product" action="/addProduct" method="post">
+
+                <div class="form-group">
+                    <label>Produktnamn</label>
+                    <input type="name" class="form-control" name="productName" id="productname"
+                        placeholder="Produktnamn" required>
+                </div>
+                <div class="form-group">
+                    <label>Pris</label>
+                    <input type="number" class="form-control" name="price" id="" placeholder="Pris"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label>Beskrivning</label>
+                    <input type="text" class="form-control" name="description" id=""
+                        placeholder="Product Beskrivning" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Ladda upp foto</label>
+                    <input type="file" class="" name="imageUrl" id="" required="required">
+                </div>
+                <button class="button btn mb-4" type="submit">Lägg till produkt</button>
+            </form>
+        </div>
+        </main>
+    </div>
+</div>
+
+    <!-- <form class="add-product" action="/addProduct" method="post">
 
       <input type="text" name="name" id="">
       <input type="text" name="description" id="">
@@ -40,7 +71,7 @@
   
   <button type="submit">Add product</button>
 
-  </form>
+  </form> -->
 
   
           
