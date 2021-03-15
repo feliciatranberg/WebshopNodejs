@@ -16,8 +16,9 @@
 
   <ul>
     <li><a href="/home">Home</a></li>
-    <li><a href="/shoppingCart"> Shopping Cart</a></li>
-    <li><a href="/Checkout"> Checkout</a></li>
+    <li><a href="/addProduct">Admin</a></li>
+    <li><a href="/shoppingCart">Shopping Cart</a></li>
+    <li><a href="/Checkout">Checkout</a></li>
   
     <li class="dropdown">
       <a href="javascript:void(0)" class="dropbtn">Login</a>
@@ -28,12 +29,6 @@
         <a href="/logout">Logout</a>
       </div>
     </li>
-
-    <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Admin</a>
-      <div class="dropdown-content">
-        <a href="/addProduct"> Add Products</a>
-        <a href="/home"> Edit products</a>
        
       </div>
     </li>
@@ -42,13 +37,13 @@
     <div class="all-products">
         <%  products.forEach( product => { %>
           <div>
-           <img src= "<%= product.imageUrl %>" />
+           <img style="height: 170px;" src= "<%= product.image %>" />   
                      </div>  
           <div>
            <%= product.name %>
             </div>
             <div>
-                <%= product.price %>
+                <%= product.price %> SEK
             </div>
             <a href="/shoppingCart/<%=product.id%>">Add to Cart</a>
             <div>=================</div>

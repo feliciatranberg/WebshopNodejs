@@ -8,8 +8,9 @@
 
   <ul>
     <li><a href="/home">Home</a></li>
-    <li><a href="/shoppingCart"> Shopping Cart</a></li>
-    <li><a href="/Checkout"> Checkout</a></li>
+    <li><a href="/addProduct">Admin</a></li>
+    <li><a href="/shoppingCart">Shopping Cart</a></li>
+    <li><a href="/Checkout">Checkout</a></li>
   
     <li class="dropdown">
       <a href="javascript:void(0)" class="dropbtn">Login</a>
@@ -20,65 +21,44 @@
         <a href="/logout">Logout</a>
       </div>
     </li>
-
-    <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Admin</a>
-      <div class="dropdown-content">
-        <a href="/addProduct"> Add Products</a>
-        <a href="/home"> Edit products</a>
        
       </div>
     </li>
   </ul>
 
-
-
-
-          <form class="add-product" action="/addProduct" method="post">
-
-                <div class="form-group">
-                    <label>Produktnamn</label>
-                    <input type="name" class="form-control" name="productName" id="productname"
-                        placeholder="Produktnamn" required>
-                </div>
-                <div class="form-group">
-                    <label>Pris</label>
-                    <input type="number" class="form-control" name="price" id="" placeholder="Pris"
-                        required>
-                </div>
-
-                <div class="form-group">
-                    <label>Beskrivning</label>
-                    <input type="text" class="form-control" name="description" id=""
-                        placeholder="Product Beskrivning" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Ladda upp foto</label>
-                    <input type="file" class="" name="imageUrl" id="" required="required">
-                </div>
-                <button class="button btn mb-4" type="submit">Lägg till produkt</button>
-            </form>
-        </div>
-        </main>
-    </div>
-</div>
-
-    <!-- <form class="add-product" action="/addProduct" method="post">
-
-      <input type="text" name="name" id="">
-      <input type="text" name="description" id="">
-      <input type="number" name="price" id="">
-     
-  
-  <button type="submit">Add product</button>
-
-  </form> -->
-
-  
-          
+  <form action="/addProduct" class ="add-product" method="post" enctype="multipart/form-data">
        
-    
+      <input type="text" name="name" id="" placeholder="name" required>
+      <input type="number" name="price" id="" placeholder="price" required>
+      <input type="text" name="description" id="" cols="20" rows="5" placeholder="description">
+      <input type="file" name="imageurl" accept="image/png, image/jpeg"/>
+      <button type="submit">Add product!</button>
+  </form>
+  <div id="my-products"> 
+     
+          <% for( let i = 0; i < products.length; i++ ) { %>
+              <% if (products[i]._id == id) { %>
+                  <form action="/addProduct/edit/<%= id %> " class="edit-product" method="post" enctype="multipart/form-data">
+                      
+                      <input type="text" name="name" id="" value="<%= products[i].name %>" required>
+                      <input type="number" name="price" id="" value="<%= products[i].price %>" required>
+                      <input type="text" name="description" id="" value="<%= products[i].description %>" required>
+                      <input type="file" name="imageurl" accept="image/png, image/jpeg"/>
+                      <button type="submit">Edit product!</button>
+                  </form>
+              <% } else { %>
+              <div>
+                  <img style="height: 170px;" src="<%= products[i].image %> ">
+                  <h3><%= products[i].name %></h3>
+                  <p><%= products[i].price %> SEK</p>
+                  <p><%= products[i].description %></p>
+                  <a href="/addProduct/edit/<%= products[i]._id %> "><i class="far fa-edit"></i></a>
+                  <a href="/addProduct/delete/<%= products[i]._id %> "><i class="far fa-trash-alt"></i></a>
+  
+              </div>
+              <% } %>
+          <% } %>
+      </div>
 
 </body>
 </html>
