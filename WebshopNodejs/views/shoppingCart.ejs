@@ -6,27 +6,36 @@
 </head>
 <body>
 
-    <ul>  
-        <li><a href="/home"> Home </a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register"> Register</a></li>
-        <li><a href="/reset">Reset Password?</a></li>
-       <li><a href="/logout"> Logout</a></li>
-    </ul>
+  <ul>
+    <li><a href="/home">Home</a></li>
+    <li><a href="/addProduct">Admin</a></li>
+    <li><a href="/shoppingCart">Shopping Cart</a></li>
+    <li><a href="/Checkout">Checkout</a></li>
+  
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Login</a>
+      <div class="dropdown-content">
+        <a href="/login">Login</a>
+        <a href="/register"> Register</a>
+        <a href="/reset">Reset Password?</a>
+        <a href="/logout">Logout</a>
+      </div>
+    </li>
+       
+      </div>
+    </li>
+  </ul>
 
-    <h1>Lista av alla Products</h1>
+<div class="shopping-cart">
 
+<%= cartItem %>
 
-    <%  products.forEach( course => { %>
-        <div>
-            <%= product.name %>
-        </div>
-        <div>
-            <%= product.price %>
-        </div>
-        <a href="/addToCart/<%=product.id%>">Add to Cart</a>
-        <div>=================</div>
-     <%  }) %>
+<a href="/checkout"> checkout</a> 
+<a href="/home"> Products</a> 
+
+</div>
 
 </body>
 </html>
+
+

@@ -5,7 +5,8 @@ const sassMiddleware = require('node-sass-middleware');
 const cookieParser = require("cookie-parser");
 
 const userRouter = require("./router/userRoute");
-const homeRouter = require('./router/homeRoute');
+const productRouter = require("./router/productRoute");
+const adminRouter = require("./router/adminRoute");
 
 require('dotenv').config();
 
@@ -27,8 +28,9 @@ app.use(cookieParser())
 
 app.set('view engine', 'ejs');
 
-app.use(homeRouter);
 app.use(userRouter);
+app.use(productRouter);
+app.use(adminRouter);
 
 mongoose.connect(process.env.DATABASE_URL, 
 {useNewUrlParser: true, 

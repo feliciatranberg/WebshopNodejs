@@ -21,15 +21,15 @@ const userSchema = new mongoose.Schema({
 
 userSchema.methods.addToCart = function(productId) {
 
-this.shoppingCart.push(productId)
-this.save();
+   this.shoppingCart.push(productId)
+   this.save();
 }
 
-// userSchema.methods.addCourseList = function(productId){
+userSchema.methods.addProductList = function(productId){
 
-//     this.courseList.push(productId);
-//     this.save();
-// }
+    this.productList.push(productId);
+    this.save();
+}
 
 const User = mongoose.model("user", userSchema)
 

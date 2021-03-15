@@ -9,21 +9,15 @@ const loginRender = (req, res)=>{
 }
 
 const loginSubmit = async(req, res)=> {
-
     const {email, password} = req.body;
-
   const user =  await User.findOne({email:email});
-
   if(!user) return res.redirect("/register")
-
  const validUser =  await bcrypt.compare(password, user.password )
 
  console.log(validUser)
 
  if(!validUser) return res.redirect("/login");
-
  const jwtToken=  await  jwt.sign( {user:user}, process.env.SECRET_KEY )
-
  if(jwtToken) {
     const cookie = req.cookies.jwtToken
 
@@ -32,7 +26,6 @@ const loginSubmit = async(req, res)=> {
     }
     return res.redirect("/")
  }
-
  return res.redirect("/login")
 
 }

@@ -5,6 +5,7 @@
 <script src="https://kit.fontawesome.com/8a91947445.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
     <ul>
         <li><a href="/home">Home</a></li>
         <li><a href="/addProduct">Admin</a></li>
@@ -25,23 +26,12 @@
         </li>
       </ul>
 
-   <div>
+    <% products.forEach( product => { %>
+        <div>  <%= product.name %></div>
+        <div>  <%= product.description %></div>
+        <div>  <%= product.price %></div>
+      <% })  %>
 
-    <h4>UNDER CONSTRUCTION</h4>
-
-    <%  products.forEach ( products => { %>
-    <div>
-        <%= product.name %>
-    </div>
-    <div>
-        <%= product.price %>
-    </div>
-    <a href="/addToCart/<%=product.id%>">Add To Cart</a>
-    <div>/////////////////**/////////////////</div>
-    
-    <% }) %> 
-
-   </div>
 
 </body>
 </html>

@@ -13,7 +13,6 @@
 </style>
 </head>
 <body>
-
   <ul>
     <li><a href="/home">Home</a></li>
     <li><a href="/addProduct">Admin</a></li>
@@ -34,21 +33,37 @@
     </li>
   </ul>
 
-    <div class="all-products">
-        <%  products.forEach( product => { %>
-          <div>
-           <img style="height: 170px;" src= "<%= product.image %>" />   
-                     </div>  
-          <div>
-           <%= product.name %>
-            </div>
-            <div>
-                <%= product.price %> SEK
-            </div>
-            <a href="/shoppingCart/<%=product.id%>">Add to Cart</a>
-            <div>=================</div>
-         <%  }) %>
-        </div>
+<% if (cartItem.length == 0) { %>
+    <div> Din varukorg är tomt</div>
+  <% } %>
+  <% cartItem.forEach( item => { %>
+     
+   <div>
+      <%= item.name %> 
+      <%= item.price %> 
+      
+      valfritt 
+       <button> + </button>
+       <button> - </button>
+       <span> Totalt price : </span>
+          
+   </div>  
+      
+   ========================== 
+      
+    
+  <%}) %>
+  
+      <button type="submit" class="checkout"> Buy </button>
+  
+  <script src="https://js.stripe.com/v3/"></script>
+  
+  <script>
+  var stripe = Stripe('pk_test_51ILllLGbZ7iRrOxjc10CIcp12K40Hlr6YbEUNBTP35QIKkva1U2qnJbrcNoY27QwPdn03plnvnqemjtjMc6pQ5k400xHAbSVxe');
+  document.querySelector(".checkout").addEventListener( "click", ()=>{
+      stripe.redirectToCheckout({ sessionId: "<%=sessionId %>" });
+  })
+  </script>
 
 </body>
 </html>
