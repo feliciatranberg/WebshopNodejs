@@ -44,23 +44,21 @@ res.render("showProduct.ejs", {err:" ", products:products})
 }
 
 const addToShoppingCart = async(req, res) => {
-    //req.params.id
+
     const productId = req.params.id
-    // vi ska spara product Id in i user collection
+  
     const user = await User.findOne({_id:req.user.user._id})
-  // console.log(user)
-    // hur ska vi spara detta 
+  
    user.addToCart(productId);
-   //console.log(user);
+   
   const userWithProductData = await User.findOne({_id:req.user.user._id}).populate("shoppingCart");
- // console.log(userWithProductData.shoppingCart)
+ 
   res.render("shoppingCart.ejs", {cartItem:userWithProductData.shoppingCart, err:" " })
 }
 
 const checkout = async(req, res)=> {
     
-    // hitta products som ska köpas 
-     const user = await User.findOne({_id: req.user.user._id}).populate("shoppingCart")
+         const user = await User.findOne({_id: req.user.user._id}).populate("shoppingCart")
 
      console.log(user.shoppingCart)
     //  success router, cancel router
@@ -105,7 +103,7 @@ module.exports= {
     showProducts,
     addProductFormSubmit,
     addToShoppingCart,
-    showInstructorProducts,
+    //showInstructorProducts,
     checkout,
     shoppingSuccess
 }
