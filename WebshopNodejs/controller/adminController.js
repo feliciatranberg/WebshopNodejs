@@ -54,6 +54,8 @@ const editProduct = async (req,res) => {
 const deleteProduct = async (req, res) => {
         const id = req.params.id;
         await Product.deleteOne({_id: id});
+
+res.redirect("/addProduct");
 }
 
 module.exports= {
