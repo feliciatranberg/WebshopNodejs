@@ -12,7 +12,7 @@ const addProductFormSubmit = async(req, res)=>{
  const {imageUrl, name, description, price}=   req.body
  // skapa course i database 
  const product = await new Product({
-     imageUrl: "/img/" + imageUrl,
+     imageUrl: "/uploads/" + imageUrl,
      name: name,
      description:description,
      price: price}).save();

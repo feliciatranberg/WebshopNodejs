@@ -6,8 +6,16 @@ const {
     showUserProducts,
     checkout,
     shoppingSuccess
-    
  } = require("../controller/handleProduct");
+//  const { 
+//     imageUpload, 
+//     uploadPost,
+//     uploadGet,
+//     uploadFiles,
+//     fileName,
+//     findFile,
+//     fileDelete
+//  } = require("../controller/imageController");
 const express = require("express");
 const verifyAdmin = require("../middleware/verifyAdmin");
 const verifyUser = require("../middleware/verifyUser")
@@ -27,5 +35,13 @@ router.get("/shoppingSuccess", verifyUser, shoppingSuccess)
 router.get("/logout", (req, res)=>{
     res.clearCookie("jwtToken").redirect("/home")
 })
+
+// router.get('/', uploadGet)
+// router.post('/upload', imageUpload, uploadPost)
+// router.get('/files', uploadFiles)
+// router.get('/files/:filename', fileName)
+// router.get('/image/:filename', findFile)
+// router.delete('/files/:id', fileDelete)
+
 
 module.exports = router;
