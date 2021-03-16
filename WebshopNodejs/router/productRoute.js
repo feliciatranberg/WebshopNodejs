@@ -1,27 +1,25 @@
 const { 
-    addProductForm, 
-    addProductFormSubmit,
-    showProducts, 
+    showProduct, 
     addToShoppingCart,
-    //showInstructorProducts,
+    showUserProducts,
     checkout,
     shoppingSuccess
  } = require("../controller/handleProduct");
 const express = require("express");
-//const verifyInstructor = require("../middleware/verifyInstructor");
 const verifyUser = require("../middleware/verifyUser")
-
 const router = express.Router();
 
-
-
-router.get("/addProduct", verifyInstructor, addProductForm);
-router.post("/addProduct", verifyInstructor, addProductFormSubmit);
-router.get("/showProducts", verifyUser, showProducts)
-router.get("/showShoppingCart", verifyUser, addToShoppingCart)
-router.get("/addToCart/:id", verifyUser, addToShoppingCart)
-//router.get("/showMyProducts", verifyInstructor, showInstructorProducts);
+router.get("/", showProduct);
+router.get("/home", showProduct);
+router.get("/myProducts", verifyUser, showUserProducts);
+router.get("/ShoppingCart", verifyUser, addToShoppingCart)
+router.get("/ShoppingCart/:id", verifyUser, addToShoppingCart)
 
 router.get("/checkout", verifyUser, checkout)
 router.get("/shoppingSuccess", verifyUser, shoppingSuccess)
+
+router.get("/logout", (req, res)=>{
+    res.clearCookie("jwtToken").redirect("/home")
+})
+
 module.exports = router;
