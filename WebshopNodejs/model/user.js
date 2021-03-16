@@ -25,11 +25,11 @@ this.shoppingCart.push(productId)
 this.save();
 }
 
-// userSchema.methods.addCourseList = function(productId){
+userSchema.methods.addCourseList = function(productId){
 
-//     this.courseList.push(productId);
-//     this.save();
-// }
+this.courseList.push(productId);
+this.save();
+}
 
 const User = mongoose.model("user", userSchema)
 
