@@ -20,7 +20,9 @@ const addToShoppingCart = async(req, res) => {
     const user = await User.findOne({_id:req.user.user._id})
    user.addToCart(productId);
   const userWithProductData = await User.findOne({_id:req.user.user._id}).populate("shoppingCart");
+  console.log(userWithProductData.shoppingCart);
   res.render("shoppingCart.ejs", {cartItem:userWithProductData.shoppingCart, err:" " })
+  
 }
 
 const checkout = async(req, res)=> {
