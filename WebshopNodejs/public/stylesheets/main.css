@@ -1,4 +1,4 @@
-.register-form, .login-form, .reset-form, .reset-password-form, .check-mail {
+.register-form, .login-form, .reset-form, .reset-password-form, .check-mail, add-product, .edit-product, .all-products, .shopping-cart {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -69,6 +69,7 @@ li.dropdown {
   display: block; }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .user-symbol {
   float: right;
   padding-right: 2%; }
@@ -80,3 +81,12 @@ li.dropdown {
   align-items: center;
   padding: 2%; }
 >>>>>>> 58e6b1e84495838035ae78fcc094d284eb113e91
+=======
+
+.user-symbol {
+  float: right;
+  padding-right: 2%; }
+
+
+
+>>>>>>> 62db7b61a4b6107d8ffd527e86dfc23721ff8672

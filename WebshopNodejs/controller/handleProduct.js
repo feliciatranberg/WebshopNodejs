@@ -11,7 +11,7 @@ res.render("myProducts.ejs", { products: user.productList, err:""})
 }
 
 const showProduct = async(req, res)=>{
- const products = await Product.find() 
+ const products = await Product.find()
 res.render("home.ejs", {err:" ", products:products})
 }
 
