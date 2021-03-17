@@ -11,7 +11,7 @@ res.render("myProducts.ejs", { products: user.productList, err:""})
 }
 
 const showProduct = async(req, res)=>{
- const products = await Product.find() 
+ const products = await Product.find()
 res.render("home.ejs", {err:" ", products:products})
 }
 
@@ -20,8 +20,9 @@ const addToShoppingCart = async(req, res) => {
     const user = await User.findOne({_id:req.user.user._id})
    user.addToCart(productId);
   const userWithProductData = await User.findOne({_id:req.user.user._id}).populate("shoppingCart");
+  console.log(userWithProductData.shoppingCart);
   res.render("shoppingCart.ejs", {cartItem:userWithProductData.shoppingCart, err:" " })
-
+  
 }
 
 const checkout = async(req, res)=> {

@@ -1,4 +1,4 @@
-.register-form, .login-form, .reset-form, .reset-password-form, .check-mail {
+.register-form, .login-form, .reset-form, .reset-password-form, .check-mail, add-product, .edit-product, .all-products, .shopping-cart {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -68,6 +68,10 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
   display: block; }
 
+
 .user-symbol {
   float: right;
   padding-right: 2%; }
+
+
+
