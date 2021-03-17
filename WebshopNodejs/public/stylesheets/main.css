@@ -68,6 +68,15 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
   display: block; }
 
+<<<<<<< HEAD
 .user-symbol {
   float: right;
   padding-right: 2%; }
+=======
+.register-form, .login-form, .reset-form, .reset-password-form, .check-mail, .add-product, .edit-product, .all-products, .shopping-cart {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding: 2%; }
+>>>>>>> 58e6b1e84495838035ae78fcc094d284eb113e91

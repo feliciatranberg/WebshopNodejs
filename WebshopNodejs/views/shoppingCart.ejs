@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>Webshop</title>
+<title>Shopping Cart</title>
 <link rel="stylesheet" href="/static/stylesheets/main.css" type="text/css">
 <script src="https://kit.fontawesome.com/8a91947445.js" crossorigin="anonymous"></script>
 </head>
@@ -15,17 +15,29 @@
   </ul>
 
 <div class="shopping-cart">
+    <%  cartItem.forEach( cartItem => { %>
+      <div>
+       <img style="height: 170px;" src= "<%= cartItem.image %>" />   
+                 </div>  
+      <div>
+       <%= cartItem.name %>
+        </div>
+        <div>
+            <%= cartItem.price %> SEK
+        </div>
+        Remove
+        <div>=================</div>
+     <%  }) %>
 
-  
+      <a href="/checkout"> checkout</a> 
+      <a href="/home"> Products</a> 
+    </div>
 
-<%= cartItem %>
 
-<a href="/checkout"> checkout</a> 
-<a href="/home"> Products</a> 
+
+
 
 </div>
 
 </body>
 </html>
-
-
