@@ -27,18 +27,26 @@
   </ul>
 
 <div class="shopping-cart">
+    <%  cartItem.forEach( cartItem => { %>
+      <div>
+       <img style="height: 170px;" src= "<%= cartItem.image %>" />   
+                 </div>  
+      <div>
+       <%= cartItem.name %>
+        </div>
+        <div>
+            <%= cartItem.price %> SEK
+        </div>
+        <a href="/shoppingCart/<%=cartItem.id%>">Add to Cart</a>
+        <div>=================</div>
+     <%  }) %>
 
-<%=cartItem[9].name%>
-<%=cartItem[9].price%>
+      <a href="/checkout"> checkout</a> 
+      <a href="/home"> Products</a> 
+    </div>
 
 
 
-
-<%console.log(cartItem[0].name)%>
-
-
-<a href="/checkout"> checkout</a> 
-<a href="/home"> Products</a> 
 
 
 </div>
