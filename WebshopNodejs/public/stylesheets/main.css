@@ -1,3 +1,22 @@
+.register-form, .login-form, .reset-form, .reset-password-form, .check-mail, add-product, .edit-product, .all-products, .shopping-cart {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  padding: 2%; }
+  .register-form input, .register-form button, .login-form input, .login-form button, .reset-form input, .reset-form button, .reset-password-form input, .reset-password-form button, .check-mail input, .check-mail button {
+    width: 30%;
+    padding: 1%;
+    margin: 1%; }
+
+.user-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  text-decoration: underline; }
+
 body {
   background: grey;
   color: white;
@@ -49,9 +68,10 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
   display: block; }
 
-.register-form, .login-form, .reset-form, .reset-password-form, .check-mail, .add-product, .edit-product, .all-products, .shopping-cart {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  padding: 2%; }
+
+.user-symbol {
+  float: right;
+  padding-right: 2%; }
+
+
+

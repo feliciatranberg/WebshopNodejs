@@ -3,7 +3,6 @@
 <title>Check Out</title>
 <link rel="stylesheet" href="/static/stylesheets/main.css" type="text/css">
 <script src="https://kit.fontawesome.com/8a91947445.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../js/javascript.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 <style>
@@ -13,24 +12,13 @@
 </style>
 </head>
 <body>
+
   <ul>
     <li><a href="/home">Home</a></li>
     <li><a href="/addProduct">Admin</a></li>
     <li><a href="/shoppingCart">Shopping Cart</a></li>
     <li><a href="/Checkout">Checkout</a></li>
-  
-    <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Login</a>
-      <div class="dropdown-content">
-        <a href="/login">Login</a>
-        <a href="/register"> Register</a>
-        <a href="/reset">Reset Password?</a>
-        <a href="/logout">Logout</a>
-      </div>
-    </li>
-       
-      </div>
-    </li>
+    <li class="user-symbol"><a href="/login"><i class="far fa-user"></i></a></li>  
   </ul>
 
 <% if (cartItem.length == 0) { %>
@@ -41,8 +29,7 @@
    <div>
       <%= item.name %> 
       <%= item.price %> 
-      
-      valfritt 
+  
        <button> + </button>
        <button> - </button>
        <span> Totalt price : </span>

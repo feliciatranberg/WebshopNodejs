@@ -1,3 +1,6 @@
+
+@import "./forms.scss";
+
 body {
     background:grey;
     color: white;
@@ -57,10 +60,8 @@ body {
       display: block;
     }
 
-      .register-form, .login-form, .reset-form, .reset-password-form, .check-mail, .add-product, .edit-product, .all-products {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        padding: 2%;
-      }
+    .user-symbol {
+      float: right;
+      padding-right: 2%;
+    }
+
