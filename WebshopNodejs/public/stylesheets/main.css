@@ -71,3 +71,13 @@ li.dropdown {
 .user-symbol {
   float: right;
   padding-right: 2%; }
+
+.all-products {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly; }
+
+.specific-product {
+  width: 25%; }

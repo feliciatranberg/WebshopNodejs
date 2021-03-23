@@ -17,17 +17,15 @@
 
     <div class="all-products">
         <%  products.forEach( product => { %>
-          <div>
+          <div class=specific-product>
            <img style="height: 170px;" src= "<%= product.image %>" />   
-                     </div>  
-          <div>
-           <%= product.name %>
-            </div>
-            <div>
-                <%= product.price %> SEK
-            </div>
-            <a href="/shoppingCart/<%=product.id%>">Add to Cart</a>
-            <div>=================</div>
+                     
+       <h3>   <%= product.name %> </h3>
+          
+       <h3>     <%= product.price %> SEK </h3>
+           
+        <h3>    <a href="/shoppingCart/<%=product.id%>">Add to Cart</a></h3></div>
+          
          <%  }) %>
         </div>
 
