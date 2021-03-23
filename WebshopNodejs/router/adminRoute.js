@@ -1,4 +1,4 @@
-const verifyAdmin = require("../middleware/verifyAdmin")
+const verifyAdmin = require("../middleware/verifyadmin")
 const {upload} = require("./../middleware/upload");
 const express = require("express");
 const {addProductHome, addProduct, editProductHome, editProduct, deleteProduct} = require("../controller/admincontroller");

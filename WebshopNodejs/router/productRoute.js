@@ -6,7 +6,7 @@ const {
     shoppingSuccess
  } = require("../controller/handleProduct");
 const express = require("express");
-const verifyUser = require("../middleware/verifyUser")
+const verifyUser = require("../middleware/verifyuser")
 const router = express.Router();
 
 router.get("/", showProduct);
