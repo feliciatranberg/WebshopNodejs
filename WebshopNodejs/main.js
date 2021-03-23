@@ -4,7 +4,11 @@ const mongoose = require("mongoose");
 const sassMiddleware = require('node-sass-middleware');
 const cookieParser = require("cookie-parser");
 
-const userRouter = require("./router/userroute");
+// const userRouter = require("./router/userroute");
+
+const userRouter = require(path.join(__dirname, "./router/userroute"));
+const userRouter = require(path.resolve(__dirname, "./router/userroute"));
+
 const productRouter = require("./router/productroute");
 const adminRouter = require("./router/adminroute");
 
