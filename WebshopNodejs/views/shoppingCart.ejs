@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+<title>Shopping Cart</title>
+<link rel="stylesheet" href="/static/stylesheets/main.css" type="text/css">
+<script src="https://kit.fontawesome.com/8a91947445.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <ul>
+    <li><a href="/home">Home</a></li>
+    <li><a href="/addProduct">Admin</a></li>
+    <li><a href="/shoppingCart">Shopping Cart</a></li>
+    <li><a href="/Checkout">Checkout</a></li>
+    <li class="user-symbol"><a href="/login"><i class="far fa-user"></i></a></li>  
+  </ul>
+
+<div class="shopping-cart">
+    <%  cartItem.forEach( cartItem => { %>
+      <div>
+       <img style="height: 170px;" src= "<%= cartItem.image %>" />   
+                 </div>  
+      <div>
+       <%= cartItem.name %>
+        </div>
+        <div>
+            <%= cartItem.price %> SEK
+        </div>
+        Remove
+        <div>=================</div>
+     <%  }) %>
+
+
+      <a href="/checkout"> checkout</a> 
+      <a href="/home"> Products</a> 
+    </div>
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
