@@ -8,7 +8,7 @@
     "dev": "nodemon main.js", 
     "sass": "node-sass sass/main.scss -o public/stylesheets"
   },
-  "author": "", 
+  "author": "",  
   "license": "ISC",
   "dependencies": {  
     "@heroku-cli/command": "^8.4.1",
