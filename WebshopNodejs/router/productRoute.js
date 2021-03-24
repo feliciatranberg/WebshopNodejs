@@ -1,4 +1,5 @@
 const { 
+    pagination,
     showProduct, 
     addToShoppingCart,
     showUserProducts,
@@ -9,8 +10,8 @@ const express = require("express");
 const verifyUser = require("../middleware/verifyuser")
 const router = express.Router();
 
-router.get("/", showProduct);
-router.get("/home", showProduct);
+router.get("/", showProduct, pagination);
+router.get("/home", showProduct, pagination);
 router.get("/myProducts", verifyUser, showUserProducts);
 router.get("/ShoppingCart", verifyUser, addToShoppingCart)
 router.get("/ShoppingCart/:id", verifyUser, addToShoppingCart)

@@ -4,6 +4,28 @@ const User = require("../model/user")
 require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
+const pagination = async (req, res) => {
+    const { page = 1, limit = 2 } = req.query;
+  
+    try {
+      const products = await Product.find()
+        .limit(limit * 1)
+        .skip((page - 1) * limit)
+        .exec();
+
+      const count = await Product.countDocuments();
+  
+      res.json({
+        products,
+        totalPages: Math.ceil(count / limit),
+        currentPage: page
+      });
+    } catch (err) {
+      console.error(err.message);
+    }
+    res.render("home.ejs")
+  };
+
 const showUserProducts =async (req, res)=>{
 const user = await User.findOne({_id:req.user.user._id}).populate("productList")
 console.log(user.productList);
@@ -57,6 +79,7 @@ const shoppingSuccess = async (req, res)=>{
 }
 
 module.exports= { 
+    pagination,
     showProduct,
     addToShoppingCart,
     showUserProducts,
