@@ -15,19 +15,28 @@
     <li class="user-symbol"><a href="/login"><i class="far fa-user"></i></a></li>  
   </ul>
 
-    <div class="all-products">
-        <%  products.forEach( product => { %>
+        <div class="all-products">
+    
+         <% for(let i=0; i<products.length; i++) { %>
           <div class=specific-product>
-           <img style="height: 170px;" src= "<%= product.image %>" />   
-                     
-       <h3>   <%= product.name %> </h3>
-          
-       <h3>     <%= product.price %> SEK </h3>
-           
-        <h3>    <a href="/shoppingCart/<%=product.id%>">Add to Cart</a></h3></div>
-          
-         <%  }) %>
-        </div>
+          <img style="height: 170px;" src= "<%= products[i].image %>" />    
+        <h3>  <%= products[i].name %> </h3>
+         <h3> <%= products[i].price %> SEK </h3>
 
+          <h3> <a href="/shoppingCart/<%=products[i].id%>">Add to Cart</a></h3>
+
+        </div>
+      
+        <% } %>
+    
+           <% if(totalDataPart !== dataToShow/dataToShowPerReq) { %>
+            <a href="/?page=<%=(dataToShow/dataToShowPerReq) +1%>"> More products </a>
+          <% } else {   %>
+            <a href="/?page=1"> Back </a>
+          <% } %>
+
+       
+      </div>
+        
 </body>
 </html>

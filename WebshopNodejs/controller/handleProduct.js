@@ -4,16 +4,36 @@ const User = require("../model/user")
 require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-const showUserProducts =async (req, res)=>{
-const user = await User.findOne({_id:req.user.user._id}).populate("productList")
-console.log(user.productList);
-res.render("myProducts.ejs", { products: user.productList, err:""})
-}
+// const showUserProducts =async (req, res)=>{
+// const user = await User.findOne({_id:req.user.user._id}).populate("productList")
+// console.log(user.productList);
+// res.render("myProducts.ejs", { products: user.productList, err:""})
+// }
 
-const showProduct = async(req, res)=>{
- const products = await Product.find()
-res.render("home.ejs", {err:" ", products:products})
-}
+const showProduct = async (req, res)=>{
+
+ const page = +req.query.page || 1;
+ // .sort({name: page})
+  // hur många data vi har 
+  const totalData = await Product.find().countDocuments();
+  // hur många task skulle visas per gång / per sida
+  const dataToShowPerReq = 4;
+   //totalPages
+  const totalDataPart = Math.ceil(totalData/dataToShowPerReq);
+  
+  const dataToShow= dataToShowPerReq * page
+   
+ const products =  await Product.find().limit(dataToShow)
+   res.render("home.ejs", 
+   { products,
+     totalData,
+     totalDataPart, 
+     dataToShow,
+     dataToShowPerReq,
+     errors:"empty",    
+    })    
+    } 
+
 
 const addToShoppingCart = async(req, res) => {
     const productId = req.params.id
@@ -59,7 +79,6 @@ const shoppingSuccess = async (req, res)=>{
 module.exports= { 
     showProduct,
     addToShoppingCart,
-    showUserProducts,
     checkout,
     shoppingSuccess
 }

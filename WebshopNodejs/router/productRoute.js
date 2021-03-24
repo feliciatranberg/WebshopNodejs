@@ -1,7 +1,7 @@
 const { 
     showProduct, 
     addToShoppingCart,
-    showUserProducts,
+    //showUserProducts,
     checkout,
     shoppingSuccess
  } = require("../controller/handleProduct");
@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.get("/", showProduct);
 router.get("/home", showProduct);
-router.get("/myProducts", verifyUser, showUserProducts);
+// router.get("/myProducts", verifyUser, showUserProducts);
 router.get("/ShoppingCart", verifyUser, addToShoppingCart)
 router.get("/ShoppingCart/:id", verifyUser, addToShoppingCart)
 
