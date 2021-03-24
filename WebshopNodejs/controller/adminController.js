@@ -1,7 +1,7 @@
 const Product = require("../model/product");
 const User = require("../model/user");
 
-const addProductHome = async(req, res) => {
+const adminProductHome = async(req, res) => {
    
         const user = await User.findOne({_id: req.user.user._id}).populate("productList");
         res.render("admin.ejs", {products: user.productList, id: " "});
@@ -59,7 +59,7 @@ res.redirect("/admin");
 }
 
 module.exports= {
-    addProductHome,
+    adminProductHome,
     addProduct,
     editProductHome,
     editProduct,
