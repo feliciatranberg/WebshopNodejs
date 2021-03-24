@@ -4,12 +4,12 @@ const express = require("express");
 const {addProductHome, addProduct, editProductHome, editProduct, deleteProduct} = require("../controller/admincontroller");
 const router = express.Router();
 
-router.get("/addProduct", verifyAdmin, addProductHome);
-router.post("/addProduct", verifyAdmin, upload.single("imageurl"), addProduct);
+router.get("/admin", verifyAdmin, addProductHome);
+router.post("/admin", verifyAdmin, upload.single("imageurl"), addProduct);
 
-router.get("/addProduct/edit/:id", verifyAdmin, editProductHome)
-router.post("/addProduct/edit/:id", verifyAdmin, upload.single("imageurl"), editProduct)
+router.get("/admin/edit/:id", verifyAdmin, editProductHome)
+router.post("/admin/edit/:id", verifyAdmin, upload.single("imageurl"), editProduct)
 
-router.get("/addProduct/delete/:id", verifyAdmin, deleteProduct)
+router.get("/admin/delete/:id", verifyAdmin, deleteProduct)
 
 module.exports = router;
