@@ -1,20 +1,15 @@
-const { 
-    showProduct, 
-    addToShoppingCart,
-    checkout,
-    shoppingSuccess
- } = require("../controller/handleProduct");
+const {showProduct} = require("../controller/handleProduct");
+ const {addShoppingCart, removeShoppingCart, shoppingCartRender} = require("../controller/shoppingCartController");
 const express = require("express");
 const verifyUser = require("../middleware/verifyuser")
 const router = express.Router();
 
 router.get("/", showProduct);
-router.get("/home", showProduct);
-router.get("/ShoppingCart", verifyUser, addToShoppingCart)
-router.get("/ShoppingCart/:id", verifyUser, addToShoppingCart)
-
-router.get("/checkout", verifyUser, checkout)
-router.get("/shoppingSuccess", verifyUser, shoppingSuccess)
+router.get("/home", showProduct, addShoppingCart);
+router.get("/shoppingCart", verifyUser, addShoppingCart, shoppingCartRender, removeShoppingCart)
+router.post("/shoppingCart", verifyUser, addShoppingCart, shoppingCartRender, removeShoppingCart)
+router.get("/shoppingCart/:id", verifyUser, addShoppingCart, removeShoppingCart)
+router.get("/shoppingCart/delete/:id", verifyUser, addShoppingCart, removeShoppingCart);
 
 router.get("/logout", (req, res)=>{
     res.clearCookie("jwtToken").redirect("/home")
