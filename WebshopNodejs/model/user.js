@@ -19,26 +19,26 @@ const userSchema = new mongoose.Schema({
     }]
 })
 
-userSchema.methods.addToCart = function(productId) {
+userSchema.methods.addToCart = async function(productId) {
    this.shoppingCart.push(productId)
-   this.save();
+   await this.save();
 }
 
-userSchema.methods.removeFromCart = function (productId) {
+userSchema.methods.removeFromCart = async function (productId) {
     let index = this.shoppingCart.indexOf(productId);
     this.shoppingCart.splice(index, 1);
-    this.save();
+    await this.save();
 }
 
-userSchema.methods.addAdminProducts = function(productId){
+userSchema.methods.addAdminProducts = async function(productId){
 
     this.adminProducts.push(productId);
-    this.save();
+    await this.save();
 }
 
-userSchema.methods.removeAdminProducts = function (productId) {
+userSchema.methods.removeAdminProducts = async function (productId) {
     let index = this.adminProducts.indexOf(productId);
-    this.adminProducts.splice(index, 1);
+    await this.adminProducts.splice(index, 1);
     this.save();
 }
 

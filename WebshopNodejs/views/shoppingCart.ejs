@@ -15,17 +15,17 @@
 
 <div class="shopping-cart">
     <%  cartItem.forEach( cartItem => { %>
-      <div>
+      
+        <div class=specific-product>
        <img style="height: 170px;" src= "<%= cartItem.image %>" />   
-                 </div>  
-      <div>
-       <%= cartItem.name %>
-        </div>
-        <div>
-            <%= cartItem.price %> SEK
-        </div>
-        <a href="/shoppingCart/delete/<%= cartItem._id %> "><i class="far fa-trash-alt"></i></a>
-        <div>=================</div>
+     
+    <h3>  <%= cartItem.name %> </h3> 
+       
+    <h3>      <%= cartItem.price %> SEK </h3> 
+     
+        <h3><a href="/shoppingCart/delete/<%= cartItem._id %> "><i class="far fa-trash-alt"></i></a>
+        </h3> </div>
+     
      <%  }) %>
 
 

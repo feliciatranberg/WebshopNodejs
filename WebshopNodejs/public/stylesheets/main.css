@@ -72,7 +72,7 @@ li.dropdown {
   float: right;
   padding-right: 2%; }
 
-.all-products {
+.all-products, .shopping-cart {
   width: 100%;
   display: flex;
   flex-direction: row;

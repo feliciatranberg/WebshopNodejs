@@ -44,7 +44,7 @@ console.log(err)
 return 
 }
 
-app.listen(process.env.PORT || 7777, ()=>{
+app.listen(process.env.PORT || 3030, ()=>{
     console.log('IT´S WORKING')
 })
 })
