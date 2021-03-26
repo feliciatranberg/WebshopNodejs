@@ -2,12 +2,12 @@ const Product = require("../model/product");
 const User = require("../model/user");
 require("dotenv").config();
 
-const shoppingCartRender = async(req, res) => {
+// const shoppingCartRender = async(req, res) => {
    
-    const user = await User.findOne({_id: req.user.user._id}).populate("shoppingCart");
-    res.render("shoppingCart.ejs", {cartItem: user.shoppingCart, id: " "});
-    console.log(user.shoppingCart);
-}
+//     const user = await User.findOne({_id: req.user.user._id}).populate("shoppingCart");
+//     res.render("shoppingCart.ejs", {products: user.shoppingCart, _id: " "});
+//     console.log(user.shoppingCart);
+// }
 
 const addShoppingCart = async(req, res) => {
     try{
@@ -18,14 +18,25 @@ const addShoppingCart = async(req, res) => {
       await user.addToCart(product._id);
       
       const userProduct = await User.findOne({ _id: req.user.user._id }).populate("shoppingCart");
-      res.render("shoppingCart.ejs", {cartItem: userProduct.shoppingCart, id: ""});
+      res.render("shoppingCart.ejs", {products: userProduct.shoppingCart, _id: " "});
     }
  catch (error) {
     console.log(error);
 }
     };
 
-  
+
+    const renderShoppingCart = async(req, res)=> {
+    
+         const user = await User.findOne({_id: req.user.user._id}).populate("shoppingCart")
+    
+         console.log(user.shoppingCart)
+    
+    res.render("shoppingCart.ejs" , {products: user.shoppingCart})
+    
+    }
+
+
 
 // const removeShoppingCart = async (req,res) => {
 //     const user = await User.findOne({_id: req.user.user._id});
@@ -38,12 +49,8 @@ const addShoppingCart = async(req, res) => {
 //     }
 
     
-
-
-
-
 module.exports = {
-    shoppingCartRender,
-    addShoppingCart
+    addShoppingCart,
+    renderShoppingCart
    
 }
