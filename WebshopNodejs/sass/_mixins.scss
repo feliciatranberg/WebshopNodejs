@@ -1,0 +1,138 @@
+@mixin phone-only {
+    @media screen and (max-width:768px) {
+        @content;
+    }   
+}
+
+@mixin tablets-up {
+    @media screen and (min-width:769px) {
+        @content;
+    }
+}
+
+@mixin button-small {
+        cursor: pointer;
+        text-align: center;
+        background-color: $button-color;
+        color: $text-color-secondary;
+        border: none;
+        font-size: 0,8rem;
+        padding: 1%;
+        font-family: $font-family;
+      }
+
+@mixin button-medium { 
+    cursor: pointer;
+    text-align: center;
+    background-color: $button-color;
+    color: $text-color-secondary;
+    border: none;
+    font-size: 1.1rem;
+    padding: 3% 4% 3% 4%;
+    font-family: $font-family;
+  }
+
+@mixin button-large {   
+    cursor: pointer;
+    text-align: center;
+    background-color: $button-color;
+    color: $text-color-secondary;
+    border: none;
+    font-size: 1.2rem;
+    padding: 2% 4% 2% 4%;
+    font-family: $font-family;
+}
+
+  @mixin flex-full-width-wrap-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    font-family: $font-family;
+  }
+
+  @mixin flex-full-width-nowrap-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    font-family: $font-family;
+  }
+
+  @mixin flex-full-width-nowrap-fixed-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: $bg-color;
+    font-family: $font-family;
+  }
+
+  @mixin flex-full-width-column-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: $font-family;
+  }
+
+  @mixin scrolling-text {
+       -moz-transform:translateX(100%);
+       -webkit-transform:translateX(100%);	
+       transform:translateX(100%);
+       -moz-animation: scrolling-text-container 5s forwards;  
+       -webkit-animation: scrolling-text-container 5s forwards;  
+       animation: scrolling-text-container 5s forwards;   
+      
+    
+      @keyframes scrolling-text-container {
+        0% {
+          -webkit-transform: translateY(-250%);
+                  transform: translateY(-250%);
+        }
+        100% { 
+          -webkit-transform: translateY(-45%);
+                  transform: translateY(-45%);
+        }
+      }
+    @include tablets-up {  
+        @keyframes scrolling-text-container {
+          0% {
+            -webkit-transform: translateY(-130%);
+                    transform: translateY(-130%);
+          }
+          100% { 
+            -webkit-transform: translateY(40%);
+                    transform: translateY(40%);
+          }
+        }
+      }
+    }
+
+  @mixin keyframes-hero-banner {
+    @keyframes slideTwoAnim {
+      0%{opacity:0;}
+      17%{opacity:0;}
+      33%{opacity:1;}
+      50%{opacity:1;}
+      67%{opacity:0;} 
+      100%{opacity:0;}
+    }
+    @keyframes slideThreeAnim {
+      0%{opacity:0;}
+      50%{opacity:0;}
+      67%{opacity:1;}
+      83%{opacity:1;}
+      100%{opacity:0;}
+    }
+  }
+
+  @mixin shadow {
+    box-shadow: 1px 1px 5px grey;
+  }
+
+  @mixin text-shadow {
+    text-shadow: 0.5px 0.5px 0px grey;
+  }
