@@ -23,7 +23,6 @@ const addShoppingCart = async(req, res) => {
     
          const user = await User.findOne({_id: req.user.user._id}).populate("shoppingCart")
     
-         console.log(user.shoppingCart)
     
     res.render("shoppingCart.ejs" , {products: user.shoppingCart})
     
