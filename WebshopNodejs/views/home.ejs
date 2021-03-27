@@ -3,31 +3,45 @@
 <title>Home</title>
 <link rel="stylesheet" href="/static/stylesheets/main.css" type="text/css">
 <script src="https://kit.fontawesome.com/8a91947445.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 
   <ul>
     <li><a href="/home">Home</a></li>
-    <li><a href="/addProduct">Admin</a></li>
-    <li><a href="/shoppingCart">Shopping Cart</a></li>
-    <li><a href="/Checkout">Checkout</a></li>
+    <li><a href="/admin">Admin</a></li>
+    <li><a href="/shoppingCart/">Shopping Cart</a></li>
     <li class="user-symbol"><a href="/login"><i class="far fa-user"></i></a></li>  
   </ul>
 
-    <div class="all-products">
-        <%  products.forEach( product => { %>
+        <div class="all-products">
+    
+         <% for(let i=0; i<products.length; i++) { %>
           <div class=specific-product>
-           <img style="height: 170px;" src= "<%= product.image %>" />   
-                     
-       <h3>   <%= product.name %> </h3>
-          
-       <h3>     <%= product.price %> SEK </h3>
-           
-        <h3>    <a href="/shoppingCart/<%=product.id%>">Add to Cart</a></h3></div>
-          
-         <%  }) %>
-        </div>
+          <img style="height: 170px;" src= "<%= products[i].image %>" />    
+        <h3>  <%= products[i].name %> </h3>
+         <h3> <%= products[i].price %> SEK </h3>
 
+          <h3> <a class="add-to-cart" href="/shoppingCart/<%=products[i].id%>">Add to Cart</a></h3>
+
+        </div>
+      
+
+        <% } %>
+
+      </div>  
+
+        <div class="pagination-link">
+    
+           <% if(totalDataPart !== dataToShow/dataToShowPerReq) { %>
+            <a href="/?page=<%=(dataToShow/dataToShowPerReq) +1%>"> More products </a>
+          <% } else {   %>
+            <a href="/?page=1"> Back </a>
+          <% } %>     
+      </div>
+        
 </body>
 </html>

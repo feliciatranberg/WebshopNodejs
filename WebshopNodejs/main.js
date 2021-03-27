@@ -4,9 +4,9 @@ const mongoose = require("mongoose");
 const sassMiddleware = require('node-sass-middleware');
 const cookieParser = require("cookie-parser");
 
-const userRouter = require("./router/userRoute");
-const productRouter = require("./router/productRoute");
-const adminRouter = require("./router/adminRoute");
+const userRouter = require("./router/userroute");
+const productRouter = require("./router/productroute");
+const adminRouter = require("./router/adminroute");
 
 require('dotenv').config();
 
@@ -44,7 +44,7 @@ console.log(err)
 return 
 }
 
-app.listen(7777, ()=>{
+app.listen(process.env.PORT || 7777, ()=>{
     console.log('IT´S WORKING')
 })
 })

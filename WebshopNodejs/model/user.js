@@ -13,21 +13,32 @@ const userSchema = new mongoose.Schema({
             ref: "product"
         }
     ], 
-    productList: [{
+    adminProducts: [{
         type:mongoose.Schema.Types.ObjectId, 
         ref: "product"
     }]
 })
 
-userSchema.methods.addToCart = function(productId) {
-
+userSchema.methods.addToCart = async function(productId) {
    this.shoppingCart.push(productId)
-   this.save();
+   await this.save();
 }
 
-userSchema.methods.addProductList = function(productId){
+userSchema.methods.removeFromCart = async function (productId) {
+    let index = this.shoppingCart.indexOf(productId);
+    this.shoppingCart.splice(index, 1);
+    await this.save();
+}
 
-    this.productList.push(productId);
+userSchema.methods.addAdminProducts = async function(productId){
+
+    this.adminProducts.push(productId);
+    await this.save();
+}
+
+userSchema.methods.removeAdminProducts = async function (productId) {
+    let index = this.adminProducts.indexOf(productId);
+    await this.adminProducts.splice(index, 1);
     this.save();
 }
 
