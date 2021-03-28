@@ -18,7 +18,7 @@ const showProduct = async (req, res)=>{
      dataToShow,
      dataToShowPerReq,
      errors:"empty",    
-    })    
-    } 
+    })  
+  } 
 
 module.exports= {showProduct}

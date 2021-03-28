@@ -104,3 +104,12 @@ li a:hover {
 
 .fa-edit, .fa-trash-alt {
   color: #5A5A53; }
+
+.total-price {
+  justify-content: center;
+  display: flex;
+  width: 100%; }
+  .total-price h2 {
+    background-color: #5A5A53;
+    color: white;
+    padding: 1%; }

@@ -61,7 +61,6 @@ const deleteProduct = async (req, res) => {
     res.redirect("/admin")
 }
 
-
 module.exports= {
     adminProductHome,
     addProduct,

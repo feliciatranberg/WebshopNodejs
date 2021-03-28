@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>Reset Password Form</title>
+<title>Checkout</title>
 <link rel="stylesheet" href="/static/stylesheets/main.css" type="text/css">
 <script src="https://kit.fontawesome.com/8a91947445.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,16 +15,27 @@
     <li class="user-symbol"><a href="/login"><i class="far fa-user"></i></a></li>  
   </ul>
 
-<form class="reset-password-form" action="/resetPasswordForm" method="post">
+  <div class="all-products">
+    
+    <% for(let i=0; i<products.length; i++) { %>
+     <div class=specific-product>
+     <img style="height: 170px;" src= "<%= products[i].image %>" />    
+   <h3>  <%= products[i].name %> </h3>
+    <h3> <%= products[i].price %> SEK </h3>
+    <h3><a href="/shoppingCart/delete/<%= products[i]._id %> "><i class="far fa-trash-alt"></i></a>
+    </h3>
 
-     <input type="password" name="password" id="" placeholder="Ange ditt nytt lösenord">
-     <input type="email" name="email" value="<%= email %>" hidden >
-     
-     <button type="submit">Reset password</button>
+   </div>
+   <% } %>
+  </div>
 
-</form>
+  <div class="total-price">
+    <h2>Totalprice: <%= totalprice %> kr </h2>
+    </div> 
 
 
+
+</div>
 
 </body>
 </html>
