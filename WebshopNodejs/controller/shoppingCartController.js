@@ -4,28 +4,19 @@ require("dotenv").config();
 
 const shoppingCart = async(req, res) => {
 
+    // add to mongoDB shoppingCart
     const product = await Product.findOne({_id: req.params.id})
-    
       const userProduct = await User.findOne({ _id: req.user.user._id });
       await userProduct.addToCart(product._id);
       
-         let totalprice;
+       // show on shoppingCart page
          const user = await User.findOne({_id: req.user.user._id}).populate("shoppingCart");
-         const count = (accumulator, currentValue) => accumulator + currentValue;
-         if(user.shoppingCart.length === 0) {
-             totalprice = 0;
-         } else {
-         const prices = [];
-         user.shoppingCart.map(products => {
-             prices.push(products.price);
-         })
-         totalprice = prices.reduce(count)
-         }
-         res.render("shoppingCart.ejs", {products: user.shoppingCart, id: "", totalprice});
+         res.render("shoppingCart.ejs", {products: user.shoppingCart});
 }
 
 const checkout = async(req, res)=> {
     
+    // totalprice count on checkout page
      let totalprice;
      const user = await User.findOne({_id: req.user.user._id}).populate("shoppingCart");
      const count = (accumulator, currentValue) => accumulator + currentValue;
@@ -38,7 +29,7 @@ const checkout = async(req, res)=> {
      })
      totalprice = prices.reduce(count)
      }
-     res.render("checkout.ejs", {products: user.shoppingCart, id: "", totalprice});
+     res.render("checkout.ejs", {products: user.shoppingCart, totalprice});
 }
   
 // const removeShoppingCart = async (req,res) => {
