@@ -30,12 +30,20 @@ userSchema.methods.addToCart = async function(productId) {
 //     await this.save();
 // }
 
-userSchema.methods.removeFromMyShoppingCart = function(selectedProduct) {
-    const isFound = (element) => element._id.equals(selectedProduct._id);
-    let index = this.myShoppingCart.findIndex(isFound);
-    this.myShoppingCart.splice(index, 1);
-    this.save()
+userSchema.methods.removeFromShoppingCart = async function (productId) {
+    let index = this.shoppingCart.indexOf(productId);
+    this.shoppingCart.splice(index, 1);
+    await this.save();
+    console.log("deleting from shopping Cart")
+    
 }
+
+// userSchema.methods.removeFromMyShoppingCart = function(selectedProduct) {
+//     const isFound = (element) => element._id.equals(selectedProduct._id);
+//     let index = this.myShoppingCart.findIndex(isFound);
+//     this.myShoppingCart.splice(index, 1);
+//     this.save()
+// }
 
 userSchema.methods.addAdminProducts = async function(productId){
 
