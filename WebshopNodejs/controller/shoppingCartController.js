@@ -32,6 +32,23 @@ const checkout = async(req, res)=> {
      res.render("checkout.ejs", {products: user.shoppingCart, totalprice});
 }
   
+const removeShoppingCart = async (req,res) => {
+
+    const user = await User.findOne({_id: req.user.user._id})
+    const id = req.params.id;
+
+    const toBeRemovedProduct = await Product.findOne({_id: req.params.id});
+    user.removeFromShoppingCart(toBeRemovedProduct._id);
+    res.redirect("/checkout");
+    //res.render("shoppingCart.ejs", {products: user.shoppingCart});
+    //res.render("shoppingCart.ejs", {products: user.shoppingCart});
+    if(user.shoppingCart.length === 0) {
+        console.log("Your Shopping Cart is Empty");
+
+    }
+    console.log(shoppingCart);
+}
+
 // const removeShoppingCart = async (req,res) => {
 //     const user = await User.findOne({_id: req.user.user._id});
 //     const id = req.params.id;
@@ -44,6 +61,7 @@ const checkout = async(req, res)=> {
 
 module.exports = {
     shoppingCart,
-    checkout 
+    checkout,
+    removeShoppingCart
 
 }
