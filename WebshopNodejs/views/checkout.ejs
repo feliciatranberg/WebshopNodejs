@@ -18,10 +18,11 @@
   <div class="all-products">
     
     <% if(products.length===0) { %>
-     <div class=specific-product>
-      <h3 class="total-price">You did not add anything to Shopping Cart yet..</h3>
+     <div class="total-price">
+      <h2>You did not add anything to your shopping cart yet..</h2>
      <% } else { %>
-      <h3 class="total-price">Do not forget to enter your postcode to learn shopping cost!</h3>
+      <h2>Do not forget to enter your postcode to learn shopping cost!</h2>
+
    </div>
    <% } %>
   </div>
@@ -43,6 +44,9 @@
   <div class="total-price">
     <h2>Totalprice: <%= totalprice %> kr </h2>
     </div> 
+    <div class="total-price">
+      <input type="text" placeholder="POSTCODE">
+      </div> 
 
 
 
