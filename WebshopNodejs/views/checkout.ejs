@@ -17,6 +17,17 @@
 
   <div class="all-products">
     
+    <% if(products.length===0) { %>
+     <div class=specific-product>
+      <h3 class="total-price">You did not add anything to Shopping Cart yet..</h3>
+     <% } else { %>
+      <h3 class="total-price">Do not forget to enter your postcode to learn shopping cost!</h3>
+   </div>
+   <% } %>
+  </div>
+
+  <div class="all-products">
+    
     <% for(let i=0; i<products.length; i++) { %>
      <div class=specific-product>
      <img style="height: 170px;" src= "<%= products[i].image %>" />    
