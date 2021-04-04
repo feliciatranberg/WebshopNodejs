@@ -46,8 +46,19 @@
      <% } %>
     </div>
 
+</div>
 
+<div class="stripe-payment">
+<button type="submit" class="buy-button"> Buy </button>
+  
+<script src="https://js.stripe.com/v3/"></script>
 
+<script>
+var stripe = Stripe('pk_test_51ILllLGbZ7iRrOxjc10CIcp12K40Hlr6YbEUNBTP35QIKkva1U2qnJbrcNoY27QwPdn03plnvnqemjtjMc6pQ5k400xHAbSVxe');
+document.querySelector(".buy-button").addEventListener( "click", ()=>{
+    stripe.redirectToCheckout({ sessionId: "<%=sessionId %>" });
+})
+</script>
 </div>
 
 </body>

@@ -1,6 +1,5 @@
 
 @import './forms.scss';
-@import './mixins';
 
 body {
   
@@ -109,5 +108,23 @@ body {
 
     .emty-cart {
       color: white;
+    }
+
+    .stripe-payment {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .buy-button {
+      color:white;
+      font-size: 2rem;
+        background-color: #F87CBE;
+        padding: 0.7%;
+        font-family: 'Permanent Marker', cursive;
+        width: 20%;
+        box-shadow: 5px 5px 10px grey;
+        cursor: pointer;
+
     }
 

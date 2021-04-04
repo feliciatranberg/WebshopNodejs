@@ -1,6 +1,7 @@
 const Product = require("../model/product");
 const User = require("../model/user");
 require("dotenv").config();
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const shoppingCart = async(req, res) => {
 
@@ -28,9 +29,28 @@ const checkout = async(req, res)=> {
          prices.push(products.price);
      })
      totalprice = prices.reduce(count)
-     }
-     res.render("checkout.ejs", {products: user.shoppingCart, totalprice});
-}
+     }   
+   
+    const session = await stripe.checkout.sessions.create({
+           success_url: 'http://localhost:7777/shoppingSuccess',
+           cancel_url: 'https://example.com/cancel',
+           payment_method_types: ['card'],
+           line_items: user.shoppingCart.map( products => {
+   
+               return {
+                   name: products.name, 
+                   amount:  products.price * 100, 
+                   quantity: 1, 
+                   currency: "sek"
+               }
+           }), 
+         mode: 'payment',
+         
+       })
+   console.log(session)
+   res.render("checkout.ejs" , {products: user.shoppingCart, totalprice, sessionId: session.id})
+   }
+ 
   
 const removeShoppingCart = async (req,res) => {
 
@@ -41,27 +61,24 @@ const removeShoppingCart = async (req,res) => {
     user.removeFromShoppingCart(toBeRemovedProduct._id);
     res.redirect("/checkout");
     //res.render("shoppingCart.ejs", {products: user.shoppingCart});
-    //res.render("shoppingCart.ejs", {products: user.shoppingCart});
+  
     if(user.shoppingCart.length === 0) {
         console.log("Your Shopping Cart is Empty");
-
     }
-    console.log(shoppingCart);
+    }
+
+const shoppingSuccess = async (req, res)=>{
+
+    const user =  await User.findOne({_id: req.user.user._id})
+    user.shoppingCart = [];
+    user.save();
+    console.log(user)
+    res.send("Your cart is emty. We will send the order in 1-2 days!")
 }
-
-// const removeShoppingCart = async (req,res) => {
-//     const user = await User.findOne({_id: req.user.user._id});
-//     const id = req.params.id;
-
-//     user.removeFromCart(id);
-//     await Product.deleteOne({_id: id});
-    
-//     res.redirect("/shoppingCart")
-//     }
 
 module.exports = {
     shoppingCart,
     checkout,
-    removeShoppingCart
-
+    removeShoppingCart,
+    shoppingSuccess
 }
