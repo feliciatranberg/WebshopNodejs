@@ -1,0 +1,32 @@
+.register-form, .login-form, .reset-form, .reset-password-form, .check-mail, .add-product, .edit-product {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-shadow: 0.5px 0.5px 0px grey;
+    align-items: center;
+    padding: 2%;
+  
+  input, button {
+     width: 30%; 
+    padding: 1%;
+    margin: 1%;
+}
+}
+
+.user-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    justify-content: center;
+  
+    text-decoration: none;
+    a {
+        background-color: #F87CBE;
+        margin: 1%;
+        text-shadow: 0px 0px 0px grey;
+    }
+   
+}

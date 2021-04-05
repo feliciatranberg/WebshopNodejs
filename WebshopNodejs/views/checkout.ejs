@@ -1,56 +1,54 @@
 <!DOCTYPE html>
 <head>
-<title>Check Out</title>
+<title>Checkout</title>
 <link rel="stylesheet" href="/static/stylesheets/main.css" type="text/css">
 <script src="https://kit.fontawesome.com/8a91947445.js" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-<style>
-  div.preview-images > img {
-    width: 30%;
-  }
-</style>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <ul>
     <li><a href="/home">Home</a></li>
-    <li><a href="/addProduct">Admin</a></li>
-    <li><a href="/shoppingCart">Shopping Cart</a></li>
-    <li><a href="/Checkout">Checkout</a></li>
+    <li><a href="/admin">Admin</a></li>
+    <li><a href="/checkout">Checkout</a></li>
     <li class="user-symbol"><a href="/login"><i class="far fa-user"></i></a></li>  
   </ul>
 
-<% if (cartItem.length == 0) { %>
-    <div> Din varukorg är tomt</div>
-  <% } %>
-  <% cartItem.forEach( item => { %>
-     
-   <div>
-      <%= item.name %> 
-      <%= item.price %> 
-  
-       <button> + </button>
-       <button> - </button>
-       <span> Totalt price : </span>
-          
-   </div>  
-      
-   ========================== 
-      
+
+
+  <div class="all-products">
     
-  <%}) %>
-  
-      <button type="submit" class="checkout"> Buy </button>
-  
-  <script src="https://js.stripe.com/v3/"></script>
-  
-  <script>
-  var stripe = Stripe('pk_test_51ILllLGbZ7iRrOxjc10CIcp12K40Hlr6YbEUNBTP35QIKkva1U2qnJbrcNoY27QwPdn03plnvnqemjtjMc6pQ5k400xHAbSVxe');
-  document.querySelector(".checkout").addEventListener( "click", ()=>{
-      stripe.redirectToCheckout({ sessionId: "<%=sessionId %>" });
-  })
-  </script>
+    <% for(let i=0; i<products.length; i++) { %>
+     <div class=specific-product>
+     <img style="height: 170px;" src= "<%= products[i].image %>" />    
+   <h3>  <%= products[i].name %> </h3>
+    <h3> <%= products[i].price %> SEK </h3>
+    <h3><a href="/shoppingCart/delete/<%= products[i]._id %> "><i class="far fa-trash-alt"></i></a>
+    </h3>
+
+   </div>
+   <% } %>
+  </div>
+
+
+    
+
+    <div class="all-products">
+    
+      <% if(products.length===0) { %>
+       <div class="emty-cart">
+        <h2>You did not add anything to your shopping cart yet..</h2></div>
+       <% } else { %>
+        <div class="total-price">
+        <h2>Total price: <%= totalprice %> kr </h2>
+     </div>
+     <% } %>
+    </div>
+
+
+
+</div>
 
 </body>
 </html>

@@ -1,11 +1,13 @@
-.register-form, .login-form, .reset-form, .reset-password-form, .check-mail, .add-product {
+.register-form, .login-form, .reset-form, .reset-password-form, .check-mail, .add-product, .edit-product {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
+  color: white;
+  text-shadow: 0.5px 0.5px 0px grey;
   align-items: center;
   padding: 2%; }
-  .register-form input, .register-form button, .login-form input, .login-form button, .reset-form input, .reset-form button, .reset-password-form input, .reset-password-form button, .check-mail input, .check-mail button, .add-product input, .add-product button {
+  .register-form input, .register-form button, .login-form input, .login-form button, .reset-form input, .reset-form button, .reset-password-form input, .reset-password-form button, .check-mail input, .check-mail button, .add-product input, .add-product button, .edit-product input, .edit-product button {
     width: 30%;
     padding: 1%;
     margin: 1%; }
@@ -14,70 +16,103 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-evenly;
-  text-decoration: underline; }
+  width: 100%;
+  justify-content: center;
+  text-decoration: none; }
+  .user-links a {
+    background-color: #F87CBE;
+    margin: 1%;
+    text-shadow: 0px 0px 0px grey; }
 
 body {
-  background: grey;
-  color: white;
+  background-image: url("/static/images/psychedelic-abstract-background-1579715777z45.jpeg");
+  background-color: white;
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+  position: relative;
+  color: #5A5A53;
   width: 100%;
   height: 100%;
-  font-family: Arial, Helvetica, sans-serif; }
+  font-family: 'Permanent Marker', cursive; }
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333; }
+  background-color: #F87CBE;
+  box-shadow: 5px 5px 10px grey;
+  font-size: 1.2rem; }
 
 li {
   float: left; }
 
-li a, .dropbtn {
+li a {
   display: inline-block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none; }
 
-li a:hover, .dropdown:hover .dropbtn {
-  background-color: grey; }
-
-li.dropdown {
-  display: inline-block; }
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #333;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1; }
-
-.dropdown-content a {
-  color: white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left; }
-
-.dropdown-content a:hover {
-  background-color: grey; }
-
-.dropdown:hover .dropdown-content {
-  display: block; }
+li a:hover {
+  color: #F2F2E9; }
 
 .user-symbol {
   float: right;
   padding-right: 2%; }
 
-.all-products {
+.all-products, .shopping-cart, .admin-products {
+  margin-top: 1.7%;
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly; }
 
-.specific-product {
-  width: 25%; }
+.specific-product, .admin-product {
+  width: 20%;
+  background-color: white;
+  margin: 1%;
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 1.7%;
+  box-shadow: 5px 5px 10px grey; }
+  .specific-product h3, .admin-product h3 {
+    margin: 2%; }
+
+.add-to-cart {
+  font-size: 1rem;
+  color: white;
+  background-color: #5A5A53;
+  text-decoration: none;
+  padding: 2.5%;
+  box-shadow: 5px 5px 10px grey; }
+
+.pagination-link, .shoppingcart-links {
+  text-align: center;
+  width: 100%;
+  font-size: 1.2rem;
+  margin-top: 2%;
+  margin-bottom: 2%; }
+  .pagination-link a, .shoppingcart-links a {
+    color: white;
+    background-color: #F87CBE;
+    text-decoration: none;
+    padding: 0.7%;
+    box-shadow: 5px 5px 10px grey; }
+
+.fa-edit, .fa-trash-alt {
+  color: #5A5A53; }
+
+.total-price {
+  justify-content: center;
+  display: flex;
+  width: 100%; }
+  .total-price h2 {
+    background-color: #5A5A53;
+    color: white;
+    padding: 1%; }
+
+.emty-cart {
+  color: white; }
