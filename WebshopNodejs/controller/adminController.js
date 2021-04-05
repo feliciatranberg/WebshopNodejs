@@ -1,6 +1,7 @@
 const Product = require("../model/product");
 const User = require("../model/user");
 
+
 const adminProductHome = async(req, res) => {
    
         const user = await User.findOne({_id: req.user.user._id}).populate("adminProducts");
