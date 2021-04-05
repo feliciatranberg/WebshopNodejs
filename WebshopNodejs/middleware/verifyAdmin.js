@@ -7,9 +7,6 @@ const verifyTokenAdmin = (req, res, next)=>{
  
     const validUser = jwt.verify(token, process.env.SECRET_KEY)
   
-  console.log(" verify admin is triggered")
-  console.log(validUser)
-  
   if(!validUser.user.role) return res.render("login.ejs", {err:"Du har inte authorization för att kunna göra detta"})
   req.user = validUser;
   next();

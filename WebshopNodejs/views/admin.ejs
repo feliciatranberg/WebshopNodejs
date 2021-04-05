@@ -24,16 +24,11 @@
       <button type="submit">Add product!</button>
   </form>
   <div class="admin-products"> 
-   
-
           <% for( let i = 0; i < products.length; i++ ) { %>
               <% if (products[i]._id == id) { %>
-
-
   </div>
 
-                  <form action="/admin/edit/<%= id %> " class="edit-product" method="post" enctype="multipart/form-data">
-                      
+                  <form action="/admin/edit/<%= id %> " class="edit-product" method="post" enctype="multipart/form-data"> 
                       <input type="text" name="name" id="" value="<%= products[i].name %>" required>
                       <input type="number" name="price" id="" value="<%= products[i].price %>" required>
                       <input type="text" name="description" id="" value="<%= products[i].description %>" required>
